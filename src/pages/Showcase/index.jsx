@@ -1,6 +1,6 @@
 import UserInfo from "../../Components/Userinfo";
 import Weather from "../../Components/Weather";
-
+import Notes from "../../Components/Notes";
 function Showcase() {
   return (
     <div>
@@ -8,6 +8,8 @@ function Showcase() {
       <div>
         <UserInfo/>
         <Weather/>
+        <Notes/>
+
       </div>
     </div>
   );
