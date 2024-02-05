@@ -7,10 +7,10 @@ export default function Chips({ data, selectedGenres, setselectedGenres }) {
     }
   };
   return(
-  <div>
+  <div style={{color : "white" , background : "green" ,width:"fit-content" , height : 32  , border : "10px solid green" , borderRadius:"10px" , margin : "10px"}}>
     {data}
-    &nbsp;&nbsp;
-    <span onClick={HandleClick}>X</span>
+    &nbsp;&nbsp;&nbsp;
+    <span onClick={HandleClick} >X</span>
   </div>
   )
 }

@@ -63,53 +63,81 @@ const genres = [
 function Info() {
   const [selectedGenres, setselectedGenres] = useState([]);
   console.log(selectedGenres);
-  const navigate =useNavigate()
+  const navigate = useNavigate();
   return (
     <div>
-      <h1>Info</h1>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr",
-          gap: "12px",
-        }}
-      >
-        {genres.map((genre) => (
-          <Box
-            key={genre.id}
-            data={genre}
-            selectedGenres={selectedGenres}
-            setselectedGenres={setselectedGenres}
-          />
-        ))}
+      <div style={{display : "flex"}}>
+        <div style={{marginTop : 100 , marginLeft : 45 , width : "50%" , background:"blue"}}>
+          <h1
+            style={{
+              color: "rgba(114, 219, 115, 1)",
+              fontFamily: "cursive",
+              fontStyle: "italic",
+              fontSize: "40px",
+            }}
+          >
+            Super app
+          </h1>
+          <h1
+            style={{
+              marginTop : 35,
+              color: "rgba(114, 219, 115, 1)",
+              fontStyle: "italic",
+              fontSize: "60px",
+              wordWrap: "break-word",
+              width: "45%",
+            }}
+          >
+            Choose your entertainment category
+          </h1>
+
+          {selectedGenres.map((movies) => (
+            <Chips
+              key={movies}
+              data={movies}
+              selectedGenres={selectedGenres}
+              setselectedGenres={setselectedGenres}
+            />
+          ))}
+
+          {selectedGenres.length < 3 ? (
+            <p style={{ color: "red" }}>Minimum 3 Genres to be selected</p>
+          ) : (
+            <></>
+          )}
+        </div>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr 1fr",
+            gap: "12px",
+            marginTop : 100 ,marginRight : 50, width : "50%" , background:"red"
+          }}
+        >
+          {genres.map((genre) => (
+            <Box
+              key={genre.id}
+              data={genre}
+              selectedGenres={selectedGenres}
+              setselectedGenres={setselectedGenres}
+            />
+          ))}
+        </div>
       </div>
-      <div>
-        {selectedGenres.map((movies) => (
-          <Chips
-            key={movies}
-            data={movies}
-            selectedGenres={selectedGenres}
-            setselectedGenres={setselectedGenres}
-          />
-        ))}
-      </div>
-      {selectedGenres.length < 3 ? (
-        <p style={{ color: "red" }}>Minimum 3 Genres to be selected</p>
-      ) : (
-        <></>
-      )}
-      <button
-        onClick={() => {
-          window.localStorage.setItem(
-            "selectedGenres",
-            JSON.stringify(selectedGenres)
-          );
-          navigate('/Showcase')
-        }}
-        disabled={selectedGenres.length < 3}
-      >
-        Next Page
-      </button>
+      <footer style={{ textAlign: "right", marginRight: 50 }}>
+        <button
+          onClick={() => {
+            window.localStorage.setItem(
+              "selectedGenres",
+              JSON.stringify(selectedGenres)
+            );
+            navigate("/Showcase");
+          }}
+          disabled={selectedGenres.length < 3}
+        >
+          Next Page
+        </button>
+      </footer>
     </div>
   );
 }

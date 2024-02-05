@@ -11,6 +11,8 @@ export default function Box({ data, selectedGenres, setselectedGenres }) {
       style={{ 
         background: data.color, 
         textAlign: "center", 
+        borderRadius : 24,
+        width : 225,
         border: `${selectedGenres.includes(data.id) ? "4px solid green" : "4px solid black" }`
     }}
       onClick={HandleClick}
